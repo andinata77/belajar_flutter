@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:belajar_flutter/fic4/json_serialization/lesson/product_model.dart';
+import 'package:belajar_flutter/fic4/pertemuan_7/json_serialization/lesson/product_model.dart';
 import 'package:http/http.dart' as http;
 import 'album.dart';
 

@@ -1,5 +1,5 @@
+import 'package:belajar_flutter/fic4/pertemuan_8/shared_preferences_example/counter_shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:belajar_flutter/fic4/pertemuan_8/path_provider_example/counter_file_storage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Jagoflutter Local Storage',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Binar Read Write Files'),
+      home: const MyHomePage(title: 'Jagoflutter Gmeet ke-4'),
     );
   }
 }
@@ -33,22 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _getDataCounter() async {
-    _counter = await CounterFileStorage().readCounter();
+    _counter = await CounterSharedPreferences().getData();
     setState(() {});
   }
 
   void _incrementCounter() async {
-    await CounterFileStorage().writeCounter(++_counter);
+    await CounterSharedPreferences().saveData(++_counter);
     _getDataCounter();
   }
 
   void _decrementCounter() async {
-    await CounterFileStorage().writeCounter(--_counter);
+    await CounterSharedPreferences().saveData(--_counter);
     _getDataCounter();
   }
 
   void _removeCounter() async {
-    await CounterFileStorage().writeCounter(0);
+    await CounterSharedPreferences().removeData();
     _getDataCounter();
   }
 
@@ -69,11 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Counter example from directory',
+              'Value',
+              textAlign: TextAlign.center,
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
             ),
             const SizedBox(
               height: 8,
